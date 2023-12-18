@@ -302,7 +302,7 @@ extern const unsigned short spritesheetPal[256];
 # 6 "player.c" 2
 # 1 "spaceBg.h" 1
 # 22 "spaceBg.h"
-extern const unsigned short spaceBgTiles[3776];
+extern const unsigned short spaceBgTiles[3648];
 
 
 extern const unsigned short spaceBgMap[1024];
@@ -325,10 +325,10 @@ extern const unsigned short tilesetPal[256];
 
 
 
-extern const unsigned short gameMapMap[1024];
+extern const unsigned short gameMapMap[2048];
 # 9 "player.c" 2
 # 1 "player.h" 1
-# 10 "player.h"
+# 12 "player.h"
 typedef struct {
     int x;
     int y;
@@ -353,15 +353,15 @@ void drawPlayer(PLAYER* player);
 void updatePlayer(PLAYER* player);
 # 10 "player.c" 2
 # 1 "game.h" 1
-
-
-
-
-
-
-extern int lives;
+# 9 "game.h"
+extern int currLives;
 extern int PotatoFrames;
-
+extern int totalCycles;
+extern int spaceshipColl;
+extern int hoff;
+extern int voff;
+extern int spaceHoff;
+extern int isWatering;
 
 typedef struct {
     int x;
@@ -376,6 +376,28 @@ typedef struct {
     int numStage;
 } POTATO;
 
+typedef struct {
+    int active;
+    int OAMIndex;
+} LIVES;
+
+typedef struct {
+    int x;
+    int y;
+    int OAMIndex;
+    int height;
+    int width;
+} SPACESHIP;
+
+typedef struct {
+    int x;
+    int y;
+    int currentFrame;
+    int totalFrames;
+    int timeUntilNextStage;
+} PAUSESPACESHIP;
+
+
 void drawPotato();
 void updatePotato();
 void waterPotato(PLAYER* player);
@@ -384,11 +406,29 @@ void pickPotato(PLAYER* player);
 void initGame();
 void updateGame();
 void drawGame();
-# 11 "player.c" 2
+void updateNumPotatoes();
+void drawNumPotatoes();
+void eatPotato();
+void drawLives();
+void updateLives();
+void drawSpaceship();
+void drawWaterMachine();
+void interactWithWaterMachine(PLAYER* player);
+void toggleCheat();
+void tillField();
+void animateLowHealth();
+void initSpaceship();
 
+void setupInterrupts();
+void interruptHandler();
+
+void initPauseSpaceship();
+void drawPauseSpaceship();
+void updatePauseSpaceship();
+# 11 "player.c" 2
 void initPlayer(PLAYER* player) {
-    player -> x = 50;
-    player -> y = 100;
+    player -> x = 16;
+    player -> y = 272;
     player -> vel = 1;
     player -> height = 16;
     player -> width = 16;
@@ -397,21 +437,33 @@ void initPlayer(PLAYER* player) {
     player -> timeUntilNextFrame = 10;
     player -> currentFrame = 0;
     player -> numFrames = 4;
-    mgba_printf("WE did it patrick we initialized the player!");
 }
 void drawPlayer(PLAYER* player) {
-    shadowOAM[0].attr0 = (0 << 13) | (0 << 14) | ((player -> y) & 0xFF);
-    shadowOAM[0].attr1 = (1 << 14) | ((player -> x) & 0x1FF);
+    shadowOAM[0].attr0 = (0 << 13) | (0 << 14) | ((player -> y - voff) & 0xFF);
+    shadowOAM[0].attr1 = (1 << 14) | ((player -> x - hoff) & 0x1FF);
+
 
     if (player -> isMoving == 0) {
         if (player -> direction == 'u') {
             shadowOAM[0].attr2 = (((6) * (32) + (0)) & 0x3FF);
+            if (isWatering) {
+                shadowOAM[0].attr2 = (((6) * (32) + (8)) & 0x3FF);
+            }
         } else if (player -> direction == 'l') {
             shadowOAM[0].attr2 = (((4) * (32) + (0)) & 0x3FF);
+            if (isWatering) {
+                shadowOAM[0].attr2 = (((4) * (32) + (8)) & 0x3FF);
+            }
         } else if (player -> direction == 'r') {
             shadowOAM[0].attr2 = (((2) * (32) + (0)) & 0x3FF);
+            if (isWatering) {
+                shadowOAM[0].attr2 = (((2) * (32) + (8)) & 0x3FF);
+            }
         } else {
             shadowOAM[0].attr2 = (((0) * (32) + (0)) & 0x3FF);
+            if (isWatering) {
+                shadowOAM[0].attr2 = (((2) * (32) + (10)) & 0x3FF);
+            }
         }
 
     } else if (player -> direction == 'l') {
@@ -420,8 +472,10 @@ void drawPlayer(PLAYER* player) {
         shadowOAM[0].attr2 = (((2) * (32) + (player -> currentFrame * 2)) & 0x3FF);
     } else if (player -> direction == 'u') {
         shadowOAM[0].attr2 = (((6) * (32) + (player -> currentFrame * 2)) & 0x3FF);
+
     } else {
         shadowOAM[0].attr2 = (((0) * (32) + (player -> currentFrame * 2)) & 0x3FF);
+
     }
 }
 void updatePlayer(PLAYER* player) {
@@ -433,38 +487,54 @@ void updatePlayer(PLAYER* player) {
         player -> isMoving = 1;
         if ((player -> x - player -> vel) > 0) {
             player -> x -= player -> vel;
+
             player -> direction = 'l';
         }
     }
     if ((~(buttons) & ((1 << 4)))) {
         player -> isMoving = 1;
-        if ((player -> x + player -> vel) < 240) {
+        if ((player -> x + player -> vel) < (256 - player->width)) {
             player -> x += player -> vel;
+
             player -> direction = 'r';
-            mgba_printf("headed right");
+
         }
     }
     if ((~(buttons) & ((1 << 6)))) {
         player -> isMoving = 1;
-        if ((player -> y + player -> vel) > 0) {
+        if ((player -> y + player -> vel) > 256) {
             player -> y -= player -> vel;
+
+
             player -> direction = 'u';
         }
     }
     if ((~(buttons) & ((1 << 7)))) {
         player -> isMoving = 1;
-        if ((player -> y - player -> vel) < 160) {
+        if ((player -> y - player -> vel) < (512 - player -> height)) {
             player -> y += player -> vel;
+
             player -> direction = 'd';
         }
     }
     if ((!(~(oldButtons) & ((1 << 8))) && (~(buttons) & ((1 << 8))))) {
         seedPotato(player);
     }
+    if ((!(~(oldButtons) & ((1 << 9))) && (~(buttons) & ((1 << 9))))) {
+        tillField(player);
+    }
     if ((!(~(oldButtons) & ((1 << 0))) && (~(buttons) & ((1 << 0))))) {
         waterPotato(player);
         pickPotato(player);
     }
+    if ((!(~(oldButtons) & ((1 << 1))) && (~(buttons) & ((1 << 1))))) {
+        eatPotato();
+    }
+
+    if ((!(~(oldButtons) & ((1 << 8))) && (~(buttons) & ((1 << 8)))) && (!(~(oldButtons) & ((1 << 9))) && (~(buttons) & ((1 << 9))))) {
+        toggleCheat(player);
+    }
+
 
     if (player -> isMoving) {
             player -> timeUntilNextFrame--;
@@ -478,5 +548,23 @@ void updatePlayer(PLAYER* player) {
     } else {
         player -> currentFrame = 1;
         player -> timeUntilNextFrame = 10;
+    }
+
+
+
+    hoff = player -> x - (240 - player -> width) / 2;
+    voff = player -> y - (160 - player -> height) / 2;
+
+
+    if ((voff + 160) > 64*8 ) {
+
+        voff = 64*8 - 160;
+    } else if (voff < 256 - (160 / 2)){
+        voff = 256 - (160 / 2);
+    }
+    if ((hoff + 240) > 32*8) {
+        hoff = 32*8 - 240;
+    } else if (hoff < 0){
+        hoff = 0;
     }
 }

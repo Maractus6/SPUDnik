@@ -513,9 +513,6 @@ spaceBgMap:
 	.short	0
 	.short	0
 	.short	90
-	.short	2102
-	.short	3102
-	.short	87
 	.short	0
 	.short	0
 	.short	0
@@ -523,50 +520,83 @@ spaceBgMap:
 	.short	0
 	.short	0
 	.short	0
-	.short	74
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	91
-	.short	0
-	.short	92
 	.short	1080
 	.short	0
 	.short	0
 	.short	37
 	.short	55
+	.short	92
 	.short	93
 	.short	94
 	.short	95
-	.short	96
 	.short	3136
+	.short	96
 	.short	97
-	.short	98
 	.short	2120
+	.short	98
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	1113
+	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	99
-	.short	0
-	.short	0
-	.short	0
 	.short	100
 	.short	101
-	.short	37
-	.short	0
-	.short	0
 	.short	102
 	.short	103
-	.short	0
-	.short	2054
 	.short	104
-	.short	1113
-	.short	0
 	.short	105
-	.short	0
-	.short	1113
-	.short	0
-	.short	0
-	.short	0
-	.short	0
 	.short	106
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	107
 	.short	108
 	.short	109
@@ -574,54 +604,24 @@ spaceBgMap:
 	.short	111
 	.short	112
 	.short	113
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
 	.short	114
-	.short	0
-	.short	0
 	.short	115
-	.short	103
+	.short	0
+	.short	0
 	.short	116
+	.short	0
+	.short	0
+	.short	0
 	.short	117
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
+	.short	1103
 	.short	0
 	.short	0
 	.short	118
 	.short	119
 	.short	120
+	.short	0
+	.short	0
 	.short	121
-	.short	122
-	.short	123
-	.short	124
-	.short	125
-	.short	126
-	.short	0
-	.short	0
-	.short	127
-	.short	0
-	.short	0
-	.short	0
-	.short	128
-	.short	1103
-	.short	0
-	.short	0
-	.short	129
-	.short	130
-	.short	2149
-	.short	0
-	.short	0
-	.short	131
 	.short	0
 	.short	0
 	.short	1113
@@ -629,9 +629,38 @@ spaceBgMap:
 	.short	0
 	.short	0
 	.short	0
+	.short	122
+	.short	123
+	.short	124
+	.short	125
+	.short	126
+	.short	127
+	.short	128
+	.short	129
+	.short	130
+	.short	131
+	.short	0
+	.short	0
+	.short	0
+	.short	3
+	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	132
+	.short	0
+	.short	0
 	.short	133
 	.short	134
+	.short	0
+	.short	30
+	.short	0
+	.short	0
+	.short	0
+	.short	30
+	.short	0
+	.short	0
+	.short	0
 	.short	135
 	.short	136
 	.short	137
@@ -639,29 +668,31 @@ spaceBgMap:
 	.short	139
 	.short	140
 	.short	141
-	.short	0
-	.short	0
-	.short	0
-	.short	3
 	.short	142
-	.short	1116
-	.short	0
-	.short	0
-	.short	103
-	.short	0
-	.short	0
 	.short	143
-	.short	2151
-	.short	0
-	.short	30
-	.short	0
-	.short	0
-	.short	0
-	.short	30
-	.short	0
-	.short	0
-	.short	0
 	.short	144
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	120
+	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	145
 	.short	146
 	.short	147
@@ -671,45 +702,14 @@ spaceBgMap:
 	.short	151
 	.short	152
 	.short	153
-	.short	0
-	.short	0
-	.short	0
 	.short	154
-	.short	0
-	.short	0
 	.short	155
 	.short	0
-	.short	3144
-	.short	3152
-	.short	0
-	.short	3161
-	.short	2085
-	.short	2127
-	.short	0
-	.short	0
-	.short	0
-	.short	2149
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	156
-	.short	157
-	.short	158
-	.short	159
-	.short	160
-	.short	161
-	.short	162
-	.short	163
-	.short	164
-	.short	165
-	.short	166
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	154
 	.short	0
 	.short	0
 	.short	0
@@ -725,17 +725,17 @@ spaceBgMap:
 	.short	0
 	.short	0
 	.short	0
+	.short	157
+	.short	158
+	.short	159
+	.short	160
+	.short	161
+	.short	162
+	.short	163
+	.short	164
+	.short	165
+	.short	166
 	.short	167
-	.short	168
-	.short	169
-	.short	170
-	.short	171
-	.short	172
-	.short	173
-	.short	174
-	.short	175
-	.short	176
-	.short	177
 	.short	0
 	.short	0
 	.short	0
@@ -748,28 +748,28 @@ spaceBgMap:
 	.short	0
 	.short	0
 	.short	0
+	.short	168
+	.short	0
+	.short	0
+	.short	0
+	.short	169
+	.short	0
+	.short	170
+	.short	0
+	.short	0
+	.short	171
+	.short	172
+	.short	173
+	.short	174
+	.short	175
+	.short	176
+	.short	177
 	.short	178
-	.short	0
-	.short	0
-	.short	0
 	.short	179
-	.short	0
 	.short	180
-	.short	0
-	.short	0
 	.short	181
-	.short	182
-	.short	183
-	.short	184
-	.short	185
-	.short	186
-	.short	187
-	.short	188
-	.short	189
-	.short	190
-	.short	191
 	.short	0
-	.short	192
+	.short	182
 	.short	0
 	.short	0
 	.short	0
@@ -777,65 +777,65 @@ spaceBgMap:
 	.short	0
 	.short	0
 	.short	2095
-	.short	193
+	.short	183
 	.short	6
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	0
+	.short	184
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	185
+	.short	186
+	.short	187
+	.short	188
+	.short	189
+	.short	190
+	.short	191
+	.short	192
+	.short	193
 	.short	194
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	195
+	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	196
+	.short	0
+	.short	2051
+	.short	0
+	.short	0
 	.short	197
+	.short	0
+	.short	0
 	.short	198
+	.short	0
 	.short	199
+	.short	0
+	.short	0
+	.short	3
 	.short	200
 	.short	201
 	.short	202
 	.short	203
 	.short	204
-	.short	0
-	.short	0
-	.short	0
-	.short	0
 	.short	205
-	.short	0
-	.short	0
-	.short	0
-	.short	0
 	.short	206
-	.short	0
-	.short	2051
-	.short	0
-	.short	0
 	.short	207
-	.short	0
-	.short	0
 	.short	208
 	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	209
-	.short	0
-	.short	0
-	.short	3
-	.short	210
-	.short	211
-	.short	212
-	.short	213
-	.short	214
-	.short	215
-	.short	216
-	.short	217
-	.short	218
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	219
 	.short	0
 	.short	3
 	.short	0
@@ -844,36 +844,36 @@ spaceBgMap:
 	.short	0
 	.short	1038
 	.short	0
+	.short	210
+	.short	0
+	.short	0
+	.short	0
+	.short	120
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	23
+	.short	211
+	.short	212
+	.short	213
+	.short	214
+	.short	215
+	.short	216
+	.short	217
+	.short	218
+	.short	219
 	.short	220
 	.short	0
 	.short	0
 	.short	0
-	.short	2149
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	23
-	.short	3186
-	.short	221
-	.short	222
-	.short	223
-	.short	224
-	.short	225
-	.short	226
-	.short	227
-	.short	228
-	.short	3214
-	.short	0
-	.short	0
-	.short	0
 	.short	0
 	.short	0
 	.short	23
 	.short	0
 	.short	0
 	.short	0
-	.short	3186
+	.short	211
 	.short	0
 	.short	0
 	.short	0
@@ -888,12 +888,12 @@ spaceBgMap:
 	.short	0
 	.short	37
 	.short	1071
-	.short	229
-	.short	230
-	.short	231
-	.short	232
-	.short	233
-	.short	234
+	.short	221
+	.short	222
+	.short	223
+	.short	224
+	.short	225
+	.short	226
 	.short	0
 	.short	0
 	.short	0
@@ -908,11 +908,11 @@ spaceBgMap:
 	.short	0
 	.short	0
 	.short	0
-	.short	235
+	.short	227
 	.short	0
 	.short	0
-	.short	2149
-	.short	3238
+	.short	120
+	.short	3227
 	.short	0
 	.short	0
 	.short	0
@@ -1302,7 +1302,7 @@ spaceBgMap:
 	.short	0
 	.short	0
 	.type	spaceBgTiles, %object
-	.size	spaceBgTiles, 7552
+	.size	spaceBgTiles, 7296
 spaceBgTiles:
 	.short	0
 	.short	0
@@ -1860,7 +1860,7 @@ spaceBgTiles:
 	.short	13107
 	.short	13107
 	.short	-23757
-	.short	13107
+	.short	13155
 	.short	13107
 	.short	15011
 	.short	13107
@@ -2764,22 +2764,6 @@ spaceBgTiles:
 	.short	0
 	.short	0
 	.short	0
-	.short	1024
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	112
-	.short	0
-	.short	0
-	.short	0
-	.short	0
 	.short	0
 	.short	0
 	.short	0
@@ -2897,102 +2881,6 @@ spaceBgTiles:
 	.short	0
 	.short	0
 	.short	64
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	2560
-	.short	1024
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	16384
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	112
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	1024
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	4
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	64
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	1024
-	.short	0
-	.short	2560
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	4
-	.short	0
 	.short	0
 	.short	0
 	.short	0
@@ -3127,70 +3015,6 @@ spaceBgTiles:
 	.short	0
 	.short	0
 	.short	2560
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	1792
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	64
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	2560
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	2560
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	10
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
 	.short	0
 	.short	0
 	.short	0
@@ -3405,6 +3229,22 @@ spaceBgTiles:
 	.short	0
 	.short	0
 	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	16384
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	1792
 	.short	0
 	.short	0
@@ -3585,11 +3425,9 @@ spaceBgTiles:
 	.short	0
 	.short	0
 	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
+	.short	64
+	.short	28672
+	.short	7
 	.short	0
 	.short	7
 	.short	0
@@ -3599,7 +3437,25 @@ spaceBgTiles:
 	.short	0
 	.short	0
 	.short	0
+	.short	0
+	.short	0
 	.short	10
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	64
 	.short	0
 	.short	0
 	.short	0
@@ -3768,38 +3624,6 @@ spaceBgTiles:
 	.short	2041
 	.short	-17576
 	.short	2041
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	64
-	.short	1024
-	.short	1140
-	.short	0
-	.short	64
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	64
-	.short	0
-	.short	160
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
 	.short	-30506
 	.short	-31628
 	.short	-10026
@@ -3975,6 +3799,22 @@ spaceBgTiles:
 	.short	0
 	.short	0
 	.short	7
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	64
+	.short	1024
+	.short	1140
+	.short	0
+	.short	64
+	.short	0
+	.short	0
 	.short	0
 	.short	0
 	.short	-8864
@@ -4840,6 +4680,22 @@ spaceBgTiles:
 	.short	0
 	.short	0
 	.short	0
+	.short	112
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
 	.short	0
 	.short	0
 	.short	0
@@ -4955,6 +4811,22 @@ spaceBgTiles:
 	.short	7
 	.short	0
 	.short	7
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	28672
+	.short	0
+	.short	0
 	.short	0
 	.short	0
 	.short	0

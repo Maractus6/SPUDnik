@@ -302,7 +302,7 @@ extern const unsigned short spritesheetPal[256];
 # 6 "main.c" 2
 # 1 "spaceBg.h" 1
 # 22 "spaceBg.h"
-extern const unsigned short spaceBgTiles[3776];
+extern const unsigned short spaceBgTiles[3648];
 
 
 extern const unsigned short spaceBgMap[1024];
@@ -325,43 +325,241 @@ extern const unsigned short tilesetPal[256];
 
 
 
-extern const unsigned short gameMapMap[1024];
+extern const unsigned short gameMapMap[2048];
 # 9 "main.c" 2
 # 1 "winScreen.h" 1
-# 21 "winScreen.h"
-extern const unsigned short winScreenTiles[3856];
+# 22 "winScreen.h"
+extern const unsigned short winScreenTiles[4368];
 
 
 extern const unsigned short winScreenMap[1024];
+
+
+extern const unsigned short winScreenPal[256];
 # 10 "main.c" 2
 # 1 "loseScreen.h" 1
-# 21 "loseScreen.h"
-extern const unsigned short loseScreenTiles[3824];
+# 22 "loseScreen.h"
+extern const unsigned short loseScreenTiles[4656];
 
 
 extern const unsigned short loseScreenMap[1024];
+
+
+extern const unsigned short loseScreenPal[256];
 # 11 "main.c" 2
 # 1 "pauseScreen.h" 1
-# 21 "pauseScreen.h"
-extern const unsigned short pauseScreenTiles[3872];
+# 22 "pauseScreen.h"
+extern const unsigned short pauseScreenTiles[5024];
 
 
 extern const unsigned short pauseScreenMap[1024];
+
+
+extern const unsigned short pauseScreenPal[256];
 # 12 "main.c" 2
 # 1 "startScreen.h" 1
-# 21 "startScreen.h"
-extern const unsigned short startScreenTiles[3808];
+# 22 "startScreen.h"
+extern const unsigned short startScreenTiles[4528];
 
 
 extern const unsigned short startScreenMap[1024];
+
+
+extern const unsigned short startScreenPal[256];
 # 13 "main.c" 2
 # 1 "instructionsScreen.h" 1
-# 21 "instructionsScreen.h"
-extern const unsigned short instructionsScreenTiles[2592];
+# 22 "instructionsScreen.h"
+extern const unsigned short instructionsScreenTiles[6304];
 
 
 extern const unsigned short instructionsScreenMap[1024];
+
+
+extern const unsigned short instructionsScreenPal[256];
 # 14 "main.c" 2
+# 1 "game.h" 1
+
+
+
+# 1 "player.h" 1
+# 12 "player.h"
+typedef struct {
+    int x;
+    int y;
+    int vel;
+    int height;
+    int width;
+    int isMoving;
+    int timeUntilNextFrame;
+    int currentFrame;
+    int numFrames;
+    char direction;
+} PLAYER;
+
+
+PLAYER player;
+OBJ_ATTR shadowOAM[128];
+int lives;
+
+
+void initPlayer(PLAYER* player);
+void drawPlayer(PLAYER* player);
+void updatePlayer(PLAYER* player);
+# 5 "game.h" 2
+
+
+
+
+extern int currLives;
+extern int PotatoFrames;
+extern int totalCycles;
+extern int spaceshipColl;
+extern int hoff;
+extern int voff;
+extern int spaceHoff;
+extern int isWatering;
+
+typedef struct {
+    int x;
+    int y;
+    int OAMIndex;
+    int height;
+    int width;
+    int active;
+    int watered;
+    int timeUntilNextStage;
+    int currentStage;
+    int numStage;
+} POTATO;
+
+typedef struct {
+    int active;
+    int OAMIndex;
+} LIVES;
+
+typedef struct {
+    int x;
+    int y;
+    int OAMIndex;
+    int height;
+    int width;
+} SPACESHIP;
+
+typedef struct {
+    int x;
+    int y;
+    int currentFrame;
+    int totalFrames;
+    int timeUntilNextStage;
+} PAUSESPACESHIP;
+
+
+void drawPotato();
+void updatePotato();
+void waterPotato(PLAYER* player);
+void seedPotato(PLAYER* player);
+void pickPotato(PLAYER* player);
+void initGame();
+void updateGame();
+void drawGame();
+void updateNumPotatoes();
+void drawNumPotatoes();
+void eatPotato();
+void drawLives();
+void updateLives();
+void drawSpaceship();
+void drawWaterMachine();
+void interactWithWaterMachine(PLAYER* player);
+void toggleCheat();
+void tillField();
+void animateLowHealth();
+void initSpaceship();
+
+void setupInterrupts();
+void interruptHandler();
+
+void initPauseSpaceship();
+void drawPauseSpaceship();
+void updatePauseSpaceship();
+# 15 "main.c" 2
+# 1 "storyScreen.h" 1
+# 22 "storyScreen.h"
+extern const unsigned short storyScreenTiles[8384];
+
+
+extern const unsigned short storyScreenMap[1024];
+
+
+extern const unsigned short storyScreenPal[256];
+# 16 "main.c" 2
+# 1 "spaceshipBg.h" 1
+# 22 "spaceshipBg.h"
+extern const unsigned short spaceshipBgTiles[2096];
+
+
+extern const unsigned short spaceshipBgMap[1024];
+
+
+extern const unsigned short spaceshipBgPal[256];
+# 17 "main.c" 2
+# 1 "digitalSounds.h" 1
+
+
+
+void setupSounds();
+void playSoundA(const signed char* sound, int length, int loops);
+void playSoundB(const signed char* sound, int length, int loops);
+
+void pauseSounds();
+void unpauseSounds();
+void stopSounds();
+# 49 "digitalSounds.h"
+typedef struct{
+    const signed char* data;
+    int dataLength;
+    int isPlaying;
+    int looping;
+    int durationInVBlanks;
+    int vBlankCount;
+} SOUND;
+
+SOUND soundA;
+SOUND soundB;
+# 18 "main.c" 2
+# 1 "spaceBgLong.h" 1
+# 22 "spaceBgLong.h"
+extern const unsigned short spaceBgLongTiles[3616];
+
+
+extern const unsigned short spaceBgLongMap[2048];
+
+
+extern const unsigned short spaceBgLongPal[256];
+# 19 "main.c" 2
+
+
+# 1 "startScreenMusic.h" 1
+
+
+extern const unsigned int startScreenMusic_sampleRate;
+extern const unsigned int startScreenMusic_length;
+extern const signed char startScreenMusic_data[];
+# 22 "main.c" 2
+# 1 "gameScreenMusic.h" 1
+
+
+extern const unsigned int gameScreenMusic_sampleRate;
+extern const unsigned int gameScreenMusic_length;
+extern const signed char gameScreenMusic_data[];
+# 23 "main.c" 2
+# 1 "pauseScreenMusic.h" 1
+
+
+extern const unsigned int pauseScreenMusic_sampleRate;
+extern const unsigned int pauseScreenMusic_length;
+extern const signed char pauseScreenMusic_data[];
+# 24 "main.c" 2
+
 
 
 
@@ -369,6 +567,7 @@ extern const unsigned short instructionsScreenMap[1024];
 u16 oldButtons;
 u16 buttons;
 OBJ_ATTR shadowOAM[128];
+int notTheFirstTime = 0;
 
 
 void goToStart();
@@ -383,10 +582,12 @@ void goToWin();
 void win();
 void goToLose();
 void lose();
+void story();
+void goToStory();
 void initialize();
 
 
-enum STATE {START, INSTRUCTIONS, GAME, PAUSE, WIN, LOSE};
+enum STATE {START, STORY, INSTRUCTIONS, GAME, PAUSE, WIN, LOSE};
 int state;
 
 int main() {
@@ -399,6 +600,9 @@ int main() {
         switch (state) {
             case START:
                 start();
+                break;
+            case STORY:
+                story();
                 break;
             case INSTRUCTIONS:
                 instructions();
@@ -413,7 +617,7 @@ int main() {
                 win();
                 break;
             case LOSE:
-                pause();
+                lose();
                 break;
         }
     }
@@ -423,9 +627,12 @@ int main() {
 void initialize() {
     mgba_open();
 
-    (*(volatile unsigned short*) 0x04000000) = ((0) & 7) | (1 << (8 + (0 % 4))) | (1 << (8 + (1 % 4))) | (1 << 12);
-    (*(volatile unsigned short*) 0x04000008) = (0 << 14) | ((0) << 2) | ((8) << 8);
-    (*(volatile unsigned short*) 0x0400000A) = (0 << 14) | ((2) << 2) | ((23) << 8);
+    (*(volatile unsigned short*) 0x04000000) = ((0) & 7) | (1 << (8 + (0 % 4))) | (1 << 12);
+    (*(volatile unsigned short*) 0x04000008) = (0 << 14) | ((0) << 2) | ((12) << 8) | (0 << 7) | 1;
+    (*(volatile unsigned short*) 0x0400000A) = (2 << 14) | ((2) << 2) | ((24) << 8) | (0 << 7) | 0;
+
+    setupInterrupts();
+    setupSounds();
 
     DMANow(3, spritesheetTiles, &((CB*) 0x06000000)[4], 32768 / 2);
     DMANow(3, spritesheetPal, ((u16*) 0x5000200), 512 / 2);
@@ -434,27 +641,54 @@ void initialize() {
     DMANow(3, tilesetTiles, &((CB*) 0x06000000)[2], 32768 / 2);
     hideSprites();
     DMANow(3, shadowOAM, ((OBJ_ATTR*) 0x7000000), 512);
-    initGame();
     goToStart();
 }
 
 void goToStart() {
-    DMANow(3, startScreenTiles, &((CB*) 0x06000000)[0], 7616 / 2);
-    DMANow(3, startScreenMap, &((SB*) 0x06000000)[8], 2048 / 2);
+    DMANow(3, startScreenTiles, &((CB*) 0x06000000)[0], 9056 / 2);
+    DMANow(3, startScreenMap, &((SB*) 0x06000000)[12], 2048 / 2);
+    DMANow(3, startScreenPal, ((unsigned short*) 0x05000000), 512 / 2);
+    (*(volatile unsigned short*) 0x04000010) = 0;
+    (*(volatile unsigned short*) 0x04000012) = 0;
+    (*(volatile unsigned short*) 0x04000014) = 0;
+    (*(volatile unsigned short*) 0x04000016) = 0;
+    initGame();
     state = START;
+    playSoundA(startScreenMusic_data, startScreenMusic_length, 1);
 }
 
 void start() {
     if ((!(~(oldButtons) & ((1 << 3))) && (~(buttons) & ((1 << 3))))) {
+        goToStory();
+    }
+}
+
+void goToStory() {
+    DMANow(3, storyScreenTiles, &((CB*) 0x06000000)[0], 16768 / 2);
+    DMANow(3, storyScreenMap, &((SB*) 0x06000000)[12], 2048 / 2);
+    DMANow(3, storyScreenPal, ((unsigned short*) 0x05000000), 512 / 2);
+    (*(volatile unsigned short*) 0x04000010) = 0;
+    (*(volatile unsigned short*) 0x04000012) = 0;
+    (*(volatile unsigned short*) 0x04000014) = 0;
+    (*(volatile unsigned short*) 0x04000016) = 0;
+    state = STORY;
+}
+
+void story() {
+    if ((!(~(oldButtons) & ((1 << 3))) && (~(buttons) & ((1 << 3))))) {
         goToInstructions();
-        mgba_printf("button pressed");
     }
 }
 
 void goToInstructions() {
-    DMANow(3, instructionsScreenTiles, &((CB*) 0x06000000)[0], 5184 / 2);
-    DMANow(3, instructionsScreenMap, &((SB*) 0x06000000)[8], 2048 / 2);
+    DMANow(3, instructionsScreenTiles, &((CB*) 0x06000000)[0], 12608 / 2);
+    DMANow(3, instructionsScreenMap, &((SB*) 0x06000000)[12], 2048 / 2);
+    DMANow(3, instructionsScreenPal, ((unsigned short*) 0x05000000), 512 / 2);
     hideSprites();
+    (*(volatile unsigned short*) 0x04000010) = 0;
+    (*(volatile unsigned short*) 0x04000012) = 0;
+    (*(volatile unsigned short*) 0x04000014) = 0;
+    (*(volatile unsigned short*) 0x04000016) = 0;
     DMANow(3, shadowOAM, ((OBJ_ATTR*) 0x7000000), 512);
     state = INSTRUCTIONS;
 }
@@ -467,8 +701,26 @@ void instructions() {
 }
 
 void goToGame() {
-    DMANow(3, spaceBgTiles, &((CB*) 0x06000000)[0], 7552 / 2);
-    DMANow(3, spaceBgMap, &((SB*) 0x06000000)[8], 2048 / 2);
+    (*(volatile unsigned short*) 0x04000000) = ((0) & 7) | (1 << (8 + (0 % 4))) | ((1 << (8 + (1 % 4)))) | (1 << 12);
+    DMANow(3, spaceBgLongTiles, &((CB*) 0x06000000)[0], 7232 / 2);
+    DMANow(3, spaceBgLongMap, &((SB*) 0x06000000)[12], 4096 / 2);
+    DMANow(3, tilesetPal, ((unsigned short*) 0x05000000), 512 / 2);
+    if (notTheFirstTime == 0) {
+        DMANow(3, gameMapMap, &((SB*) 0x06000000)[24], (4096) / 2);
+        DMANow(3, tilesetTiles, &((CB*) 0x06000000)[2], 32768 / 2);
+        DMANow(3, shadowOAM, ((OBJ_ATTR*) 0x7000000), 128*4);
+        (*(volatile unsigned short*) 0x0400000A) = (2 << 14) | ((2) << 2) | ((24) << 8) | 0 | (0 << 7);
+        for (int i = 0; i < (4096) / 2; i++) {
+            ((SB*) 0x06000000)[24].tilemap[i] |= gameMapMap[i];
+            ((SB*) 0x06000000)[24].tilemap[i] |= ((1 & 15) << 12);
+        }
+    }
+    DMANow(3, spaceBgLongPal, ((unsigned short*) 0x05000000), 512 / 2);
+    (*(volatile unsigned short*) 0x04000008) = (1 << 14) | ((0) << 2) | ((12) << 8) | (0 << 7) | 1;
+
+    playSoundA(gameScreenMusic_data, gameScreenMusic_length, 1);
+
+
 
 
 
@@ -480,39 +732,67 @@ void game() {
     updateGame();
     drawGame();
     waitForVBlank();
+    (*(volatile unsigned short*) 0x04000010) = (spaceHoff / 8) % 512;
+    (*(volatile unsigned short*) 0x04000014) = hoff;
+    (*(volatile unsigned short*) 0x04000016) = voff;
     DMANow(3, shadowOAM, ((OBJ_ATTR*) 0x7000000), 128*4);
+    if (currLives == 0) {
+        goToLose();
+    }
+    if (totalCycles == 20) {
+        goToWin();
+    }
 
     if ((!(~(oldButtons) & ((1 << 3))) && (~(buttons) & ((1 << 3))))) {
         goToPause();
     }
 
-
-
-
-
-
 }
-
-
+# 230 "main.c"
 void goToPause() {
-    DMANow(3, pauseScreenTiles, &((CB*) 0x06000000)[0], 7744 / 2);
-    DMANow(3, pauseScreenMap, &((SB*) 0x06000000)[8], 2048 / 2);
+    (*(volatile unsigned short*) 0x04000000) = ((0) & 7) | (1 << (8 + (0 % 4))) | (1 << 12);
+    (*(volatile unsigned short*) 0x04000008) = (0 << 14) | ((0) << 2) | ((12) << 8) | 1 | (0 << 7);
+    (*(volatile unsigned short*) 0x04000010) = 0;
+    (*(volatile unsigned short*) 0x04000012) = 0;
+    (*(volatile unsigned short*) 0x04000014) = 0;
+    (*(volatile unsigned short*) 0x04000016) = 0;
+    DMANow(3, pauseScreenTiles, &((CB*) 0x06000000)[0], 10048 / 2);
+    DMANow(3, pauseScreenMap, &((SB*) 0x06000000)[12], 2048 / 2);
+    DMANow(3, pauseScreenPal, ((unsigned short*) 0x05000000), 512 / 2);
     hideSprites();
+
+    shadowOAM[20].attr0 = (0 << 8) | (0 << 13) | (0 << 14) | ((70) & 0xFF);
+    shadowOAM[20].attr1 = (1 << 14) | ((10*totalCycles) & 0x1FF);
+    shadowOAM[20].attr2 = (((1) & 0xF) << 12) |(((1) & 3) << 10) | (((10) * (32) + (1)) & 0x3FF);
     DMANow(3, shadowOAM, ((OBJ_ATTR*) 0x7000000), 512);
     state = PAUSE;
+    playSoundA(pauseScreenMusic_data, pauseScreenMusic_length, 1);
+    notTheFirstTime = 1;
+    initPauseSpaceship();
 }
 
 void pause() {
+    updatePauseSpaceship();
+    drawPauseSpaceship();
+    DMANow(3, shadowOAM, ((OBJ_ATTR*) 0x7000000), 512);
     if ((!(~(oldButtons) & ((1 << 3))) && (~(buttons) & ((1 << 3))))) {
         goToGame();
     }
 }
 
 void goToWin() {
-    DMANow(3, winScreenTiles, &((CB*) 0x06000000)[0], 7712 / 2);
-    DMANow(3, winScreenMap, &((SB*) 0x06000000)[8], 2048 / 2);
+    (*(volatile unsigned short*) 0x04000000) = ((0) & 7) | (1 << (8 + (0 % 4))) | (1 << 12);
+    DMANow(3, winScreenTiles, &((CB*) 0x06000000)[0], 8736 / 2);
+    DMANow(3, winScreenMap, &((SB*) 0x06000000)[12], 2048 / 2);
+    DMANow(3, winScreenPal, ((unsigned short*) 0x05000000), 512 / 2);
     hideSprites();
+    (*(volatile unsigned short*) 0x04000010) = 0;
+    (*(volatile unsigned short*) 0x04000014) = 0;
+    (*(volatile unsigned short*) 0x04000016) = 0;
     DMANow(3, shadowOAM, ((OBJ_ATTR*) 0x7000000), 512);
+    state = WIN;
+    playSoundA(pauseScreenMusic_data, pauseScreenMusic_length, 1);
+    notTheFirstTime = 0;
 }
 
 void win() {
@@ -522,10 +802,18 @@ void win() {
 }
 
 void goToLose() {
-    DMANow(3, loseScreenTiles, &((CB*) 0x06000000)[0], 7648 / 2);
-    DMANow(3, loseScreenMap, &((SB*) 0x06000000)[8], 2048 / 2);
+    (*(volatile unsigned short*) 0x04000000) = ((0) & 7) | (1 << (8 + (0 % 4))) | (1 << 12);
+    DMANow(3, loseScreenTiles, &((CB*) 0x06000000)[0], 9312 / 2);
+    DMANow(3, loseScreenMap, &((SB*) 0x06000000)[12], 2048 / 2);
+    DMANow(3, loseScreenPal, ((unsigned short*) 0x05000000), 512 / 2);
     hideSprites();
+    (*(volatile unsigned short*) 0x04000010) = 0;
+    (*(volatile unsigned short*) 0x04000014) = 0;
+    (*(volatile unsigned short*) 0x04000016) = 0;
     DMANow(3, shadowOAM, ((OBJ_ATTR*) 0x7000000), 512);
+    state = LOSE;
+    playSoundA(pauseScreenMusic_data, pauseScreenMusic_length, 1);
+    notTheFirstTime = 0;
 }
 
 

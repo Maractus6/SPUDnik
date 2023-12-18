@@ -2,9 +2,11 @@
 #define PLAYER_H
 
 #define LEFTBORDER 0
-#define RIGHTBORDER 240
-#define TOPBORDER 0
-#define BOTTOMBORDER 160
+#define RIGHTBORDER 256
+#define TOPBORDER 256
+#define BOTTOMBORDER 512
+#define MAPHEIGHT 64*8
+#define MAPWIDTH 32*8
 
 // structs
 typedef struct {
